@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{# Load the tag library #}
+{% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% load i18n %}
+
+
+<html lang="ru-ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% trans "Manager tasks Hexlet" %}</title>
+    </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
+      <a class="navbar-brand" href="/">{% trans "Manager tasks" %}</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/">{% trans "Users" %}</a>
+          </li>
+
+        {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="/statuses/">Статусы</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/labels/">Метки</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/tasks/">Задачи</a>
+              </li>
+              <li class="nav-item">
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input class="btn nav-link" type="submit" value="Выход">
+                </form>
+              </li>
+
+        {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/login/">{% trans "Login" %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/create/">{% trans "Registration" %}</a>
+              </li>
+
+        {% endif %}
+            </ul>
+      </div>
+    </nav>
+    {% block content %}
+
+{% endblock %}
+    <footer>
+      <div class="container my-5 pt-4 border-top">
+        <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'task_manager',
+    'task_manager.users',
+    'task_manager.labels',
+    'task_manager.statuses',
+    'task_manager.tasks'
 ]
 
 MIDDLEWARE = [
@@ -122,4 +128,23 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
 load_dotenv()  # take environment variables from .env.
+
+# DATABASES = os.getenv('DATABASES')
+test_db = os.getenv('TEST_DB')
+if test_db == 'True':
+    database_url = os.getenv('DATABASE_URL_TEST')
+else:
+    database_url = os.getenv('DATABASE_URL_PRODUCTION')
+DATABASES = {
+    'default': dj_database_url.config(
+        default=database_url,
+        conn_max_age=600,
+        conn_health_checks=True
+    ),
+}
