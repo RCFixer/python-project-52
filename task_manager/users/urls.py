@@ -1,7 +1,7 @@
 from django.urls import path
-from django.contrib.auth import views as auth_view
-from .views import *
+from .views import SignUp, UsersList
 
-# urlpatterns = [
-#
-# ]
+urlpatterns = [
+    path('', UsersList.as_view(), name='users_list'),
+    path('create/', SignUp.as_view(), name='signup'),
+]
