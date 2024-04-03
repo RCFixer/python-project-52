@@ -1,0 +1,26 @@
+{
+    "create_success": {
+        "pk": 4,
+        "username": "test",
+        "first_name": "testik",
+        "second_name": "testovich",
+        "password": "123456789",
+        "password2": "123456789"
+    },
+    "existing": {
+        "pk": 3,
+        "username": "Honda",
+        "first_name": "Civic",
+        "second_name": "Galant",
+        "password": "123456789",
+        "password2": "123456789"
+    },
+    "new": {
+        "pk": 3,
+        "username": "Honda",
+        "first_name": "Civic",
+        "second_name": "Accord",
+        "password": "123456789",
+        "password2": "123456789"
+    }
+}

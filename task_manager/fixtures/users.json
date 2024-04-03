@@ -1,0 +1,32 @@
+[
+    {
+        "model": "users.customuser",
+        "pk": 1,
+        "fields": {
+            "username": "Frustr",
+            "first_name": "Yarik",
+            "second_name": "Kuznec",
+            "password": "228133769"
+        }
+    },
+    {
+        "model": "users.customuser",
+        "pk": 2,
+        "fields": {
+            "username": "Zalp",
+            "first_name": "John",
+            "second_name": "Seena",
+            "password": "123456789"
+        }
+    },
+    {
+        "model": "users.customuser",
+        "pk": 3,
+        "fields": {
+            "username": "Honda",
+            "first_name": "Civic",
+            "second_name": "Galant",
+            "password": "123456789"
+        }
+    }
+]

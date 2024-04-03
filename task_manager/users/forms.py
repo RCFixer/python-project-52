@@ -23,11 +23,9 @@ class UserCreationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-control'})
         self.fields['username'].label = 'Имя пользователя'
-        self.fields['first_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['first_name'].label = 'Имя'
-        self.fields['second_name'].widget.attrs.update({'class': 'form-control'})
+        # self.fields['second_name'].widget.attrs.update({'class': 'form-control'})
         self.fields['second_name'].label = 'Фамилия'
         self.fields['password'].help_text = 'Ваш пароль должен содержать как минимум 3 символа.'
         self.fields['password2'].help_text = 'Для подтверждения введите, пожалуйста, пароль ещё раз.'

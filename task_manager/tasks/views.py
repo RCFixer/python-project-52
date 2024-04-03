@@ -9,7 +9,12 @@ from . models import Tasks
 class CreateTask(generic.CreateView):
     form_class = TasksCreationForm
     success_url = reverse_lazy('tasks_list')
-    template_name = 'tasks/create.html'
+    template_name = 'form.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Создать задачу'
+        return context
 
     def form_valid(self, form):
         form.instance.author = self.request.user
