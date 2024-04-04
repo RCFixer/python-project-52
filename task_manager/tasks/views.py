@@ -5,6 +5,7 @@ from django.contrib import messages
 from task_manager.mixins import BaseRequiredMixin
 from . forms import TasksCreationForm
 from . models import Tasks
+from . filters import TaskFilter
 # Create your views here.
 
 
@@ -62,7 +63,8 @@ class TasksList(BaseRequiredMixin, View):
 
     def get(self, request):
         tasks = Tasks.objects.all()
-        return render(request, 'tasks/tasks_list.html', context={'tasks': tasks})
+        tasks_filter = TaskFilter(request.GET, queryset=tasks)
+        return render(request, 'tasks/tasks_list.html', context={'filter': tasks_filter})
 
 
 class TaskDetail(generic.DetailView):

@@ -15,6 +15,10 @@
 
 <a class="btn btn-primary mb-3" href="{% url 'tasks:create_task' %}" role="button">Создать задачу</a>
 
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Показать</button>
+</form>
 
 
 <table class="table table-striped">
@@ -30,7 +34,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for task in tasks %}
+    {% for task in filter.qs %}
       <tr>
         <td>{{ task.id }}</td>
         <td>
