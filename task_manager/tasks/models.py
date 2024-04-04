@@ -9,10 +9,10 @@ class Tasks(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     author = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='author')
-    executor = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='executor')
+    executor = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='executor', null=True)
     status = models.ForeignKey(Statuses, on_delete=models.RESTRICT, related_name='status')
     created_at = models.DateTimeField(auto_now=True)
-    labels = models.ManyToManyField(Labels, null=True, blank=True)
+    labels = models.ManyToManyField(Labels, blank=True)
 
     def __str__(self):
         return self.name

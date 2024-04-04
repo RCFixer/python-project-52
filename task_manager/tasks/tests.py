@@ -8,7 +8,7 @@ from task_manager.tests import TestBase, TestDataBase
 # Create your tests here.
 class TestTasks(TestDataBase, TestBase):
     model = Tasks
-    fixtures = ['users.json', 'statuses', 'tasks.json']
+    fixtures = ['users.json', 'statuses.json', 'labels.json', 'tasks.json']
     path_test_data = "test_task.json"
     show_url = 'tasks:tasks_list'
     create_url = 'tasks:create_task'

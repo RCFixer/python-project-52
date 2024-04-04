@@ -4,20 +4,23 @@
         "name": "Mazda",
         "description": "Rx-7",
         "status": 3,
-        "executor": 3
+        "executor": 3,
+        "labels": [1]
     },
     "existing": {
         "pk": 1,
         "name": "create automobile",
         "description": "Civic",
         "status": 1,
-        "executor": 3
+        "executor": 3,
+        "labels": [1]
     },
     "new": {
         "pk": 1,
         "name": "Honda",
         "description": "Civic X",
         "status": 1,
-        "executor": 3
+        "executor": 3,
+        "labels": [1]
     }
 }
