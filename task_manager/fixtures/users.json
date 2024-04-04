@@ -5,7 +5,7 @@
         "fields": {
             "username": "Frustr",
             "first_name": "Yarik",
-            "second_name": "Kuznec",
+            "last_name": "Kuznec",
             "password": "228133769"
         }
     },
@@ -15,7 +15,7 @@
         "fields": {
             "username": "Zalp",
             "first_name": "John",
-            "second_name": "Seena",
+            "last_name": "Seena",
             "password": "123456789"
         }
     },
@@ -25,7 +25,7 @@
         "fields": {
             "username": "Honda",
             "first_name": "Civic",
-            "second_name": "Galant",
+            "last_name": "Galant",
             "password": "123456789"
         }
     }
