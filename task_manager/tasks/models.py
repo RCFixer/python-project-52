@@ -12,7 +12,7 @@ class Tasks(models.Model):
     executor = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='executor')
     status = models.ForeignKey(Statuses, on_delete=models.RESTRICT, related_name='status')
     created_at = models.DateTimeField(auto_now=True)
-    labels = models.ManyToManyField(Labels)
+    labels = models.ManyToManyField(Labels, null=True, blank=True)
 
     def __str__(self):
         return self.name
