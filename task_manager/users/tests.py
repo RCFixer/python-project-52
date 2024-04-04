@@ -22,4 +22,4 @@ class TestUser(TestDataBase, TestBase):
     ) -> None:
         self.assertEqual(user.username, user_data['username'])
         self.assertEqual(user.first_name, user_data['first_name'])
-        self.assertEqual(user.second_name, user_data['second_name'])
+        self.assertEqual(user.last_name, user_data['last_name'])

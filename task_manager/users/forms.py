@@ -10,7 +10,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['first_name', 'second_name', 'username', 'password', 'password2']
+        fields = ['first_name', 'last_name', 'username', 'password', 'password2']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -26,6 +26,6 @@ class UserCreationForm(forms.ModelForm):
         self.fields['username'].label = 'Имя пользователя'
         self.fields['first_name'].label = 'Имя'
         # self.fields['second_name'].widget.attrs.update({'class': 'form-control'})
-        self.fields['second_name'].label = 'Фамилия'
+        self.fields['last_name'].label = 'Фамилия'
         self.fields['password'].help_text = 'Ваш пароль должен содержать как минимум 3 символа.'
         self.fields['password2'].help_text = 'Для подтверждения введите, пожалуйста, пароль ещё раз.'
