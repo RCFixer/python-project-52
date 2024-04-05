@@ -7,7 +7,12 @@ from task_manager.labels.models import Labels
 class TaskFilter(FilterSet):
     class Meta:
         model = Tasks
-        fields = ['status', 'executor', 'labels', 'self_tasks']
+        fields = ['status', 'executor', 'self_tasks']
+
+    def __init__(self, *args, **kwargs):
+        super(TaskFilter, self).__init__(*args, **kwargs)
+        self.filters['status'].label = 'Статус'
+        self.filters['executor'].label = 'Исполнитель'
 
     label = ModelChoiceFilter(
         field_name='labels',
