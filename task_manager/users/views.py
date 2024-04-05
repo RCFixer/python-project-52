@@ -11,7 +11,7 @@ class SignUp(SuccessMessageMixin, generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'form.html'
-    success_message = "Пользователь успешно зерегистрирован"
+    success_message = "Пользователь успешно зарегистрирован"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
