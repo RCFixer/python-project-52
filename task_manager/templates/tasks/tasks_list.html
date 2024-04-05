@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
@@ -16,7 +19,7 @@
 <a class="btn btn-primary mb-3" href="{% url 'tasks:create_task' %}" role="button">Создать задачу</a>
 
   <form method="get">
-    {{ filter.form.as_p }}
+    {% bootstrap_form filter.form %}
     <button type="submit">Показать</button>
 </form>
 

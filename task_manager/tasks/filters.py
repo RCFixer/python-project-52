@@ -5,9 +5,6 @@ from task_manager.labels.models import Labels
 
 
 class TaskFilter(FilterSet):
-    class Meta:
-        model = Tasks
-        fields = ['status', 'executor', 'self_tasks']
 
     def __init__(self, *args, **kwargs):
         super(TaskFilter, self).__init__(*args, **kwargs)
@@ -30,3 +27,7 @@ class TaskFilter(FilterSet):
         method='logined_user_is_creator_filter',
         label="Только свои задачи",
         widget=CheckboxInput(attrs={'checked': False}))
+
+    class Meta:
+        model = Tasks
+        fields = ['status', 'executor', 'self_tasks']
