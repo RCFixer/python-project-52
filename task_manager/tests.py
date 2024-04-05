@@ -104,10 +104,7 @@ class TestIndex(TestCase):
 class TestLogin(TestCase):
 
     def create_custom_user(self) -> None:
-        self.data_user = {
-                    'username': 'test',
-                    'password': '123456789'
-                }
+        self.data_user = {'username': 'test', 'password': '123456789'}
         self.user = CustomUser.objects.create_user(**self.data_user)
 
     def test_login_view(self):

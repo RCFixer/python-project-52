@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views import generic, View
+from django.views import generic
 from django.contrib import messages
 from task_manager.mixins import BaseRequiredMixin
 from django_filters.views import FilterView

@@ -14,7 +14,6 @@ class CreateLabel(BaseRequiredMixin, generic.CreateView):
     template_name = 'form.html'
     success_message = "Метка успешно создана"
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Создать метку'
