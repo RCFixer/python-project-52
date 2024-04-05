@@ -49,7 +49,7 @@ class DeleteTask(BaseRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('tasks:tasks_list')
     template_name = 'delete.html'
     error_url = reverse_lazy('tasks:tasks_list')
-    success_message = "Удаление задачи успешно"
+    success_message = "Задача успешно удалена"
     error_messages = "Вы не можете удалить статус, он используется"
 
     def get_context_data(self, **kwargs):
