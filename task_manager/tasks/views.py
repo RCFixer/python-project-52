@@ -31,6 +31,7 @@ class UpdateTask(BaseRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy('tasks:tasks_list')
     template_name = 'form.html'
     error_url = reverse_lazy('tasks:tasks_list')
+    success_message = 'Задача успешно изменена'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -47,6 +48,8 @@ class DeleteTask(BaseRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('tasks:tasks_list')
     template_name = 'delete.html'
     error_url = reverse_lazy('tasks:tasks_list')
+    success_message = "Удаление задачи успешно"
+    error_messages = "Вы не можете удалить статус, он используется"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

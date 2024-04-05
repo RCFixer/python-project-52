@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic, View
+from django.contrib.messages.views import SuccessMessageMixin
 from . forms import CustomUserCreationForm
 from . models import CustomUser
 # Create your views here.
 
 
-class SignUp(generic.CreateView):
+class SignUp(SuccessMessageMixin, generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'form.html'
@@ -19,10 +20,11 @@ class SignUp(generic.CreateView):
         return context
 
 
-class EditUser(generic.UpdateView):
+class EditUser(SuccessMessageMixin, generic.UpdateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('users:users_list')
     template_name = 'form.html'
+    success_message = "Пользователь успешно изменен"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -34,10 +36,11 @@ class EditUser(generic.UpdateView):
         return CustomUser.objects.filter(id=self.kwargs['pk'])
 
 
-class DeleteUser(generic.DeleteView):
+class DeleteUser(SuccessMessageMixin, generic.DeleteView):
     model = CustomUser
     success_url = reverse_lazy('users:users_list')
     template_name = 'delete.html'
+    success_message = "Пользователь успешно удалён"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

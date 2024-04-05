@@ -11,6 +11,7 @@ class CreateStatus(BaseRequiredMixin, generic.CreateView):
     form_class = StatusesCreationForm
     success_url = reverse_lazy('statuses:statuses_list')
     template_name = 'form.html'
+    success_message = "Статус создан успешно"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -30,6 +31,7 @@ class UpdateStatus(BaseRequiredMixin, generic.UpdateView):
     form_class = StatusesCreationForm
     success_url = reverse_lazy('statuses:statuses_list')
     template_name = 'form.html'
+    success_message = "Обновление статуса успешно"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,6 +47,8 @@ class DeleteStatus(BaseRequiredMixin, generic.DeleteView):
     model = Statuses
     success_url = reverse_lazy('statuses:statuses_list')
     template_name = 'delete.html'
+    success_message = "Удаление статуса успешно"
+    error_messages = "Вы не можете удалить статус, он используется"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

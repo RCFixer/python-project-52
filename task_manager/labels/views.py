@@ -8,10 +8,12 @@ from . models import Labels
 # Create your views here.
 
 
-class CreateLabel(generic.CreateView):
+class CreateLabel(BaseRequiredMixin, generic.CreateView):
     form_class = LabelsCreationForm
     success_url = reverse_lazy('labels:labels_list')
     template_name = 'form.html'
+    success_message = "Метка успешно создана"
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,6 +33,7 @@ class UpdateLabel(BaseRequiredMixin, generic.UpdateView):
     form_class = LabelsCreationForm
     success_url = reverse_lazy('labels:labels_list')
     template_name = 'form.html'
+    success_message = "Метка успешно изменена"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -47,6 +50,8 @@ class DeleteLabel(BaseRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('labels:labels_list')
     template_name = 'delete.html'
     error_url = reverse_lazy('labels:labels_list')
+    success_message = "Метка успешно удалена"
+    error_messages = "Невозможно удалить метку, потому что она используется"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
