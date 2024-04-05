@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic, View
 from django.contrib import messages
 from task_manager.mixins import BaseRequiredMixin
+from django_filters.views import FilterView
 from . forms import TasksCreationForm
 from . models import Tasks
 from . filters import TaskFilter
@@ -64,12 +65,14 @@ class DeleteTask(BaseRequiredMixin, generic.DeleteView):
         return redirect(self.error_url)
 
 
-class TasksList(BaseRequiredMixin, View):
+class TasksList(BaseRequiredMixin, FilterView):
 
-    def get(self, request):
-        tasks = Tasks.objects.all()
-        tasks_filter = TaskFilter(request.GET, queryset=tasks)
-        return render(request, 'tasks/tasks_list.html', context={'filter': tasks_filter})
+    filterset_class = TaskFilter
+    template_name = 'tasks/tasks_list.html'
+    # def get(self, request):
+    #     tasks = Tasks.objects.all()
+    #     tasks_filter = TaskFilter(request.GET, queryset=tasks)
+    #     return render(request, 'tasks/tasks_list.html', context={'filter': tasks_filter})
 
 
 class TaskDetail(generic.DetailView):
