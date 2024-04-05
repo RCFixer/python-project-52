@@ -40,7 +40,7 @@ class DeleteUser(SuccessMessageMixin, generic.DeleteView):
     model = CustomUser
     success_url = reverse_lazy('users:users_list')
     template_name = 'delete.html'
-    success_message = "Пользователь успешно удалён"
+    success_message = "Пользователь успешно удален"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
