@@ -12,7 +12,7 @@
     {% csrf_token %}
     {% bootstrap_form form %}
 <!--    {{ form.as_p }}-->
-    <input class="btn btn-primary" type="submit" value="Создать">
+    <input class="btn btn-primary" type="submit" value="{{ button_value }}">
 </form>
 
     </div>

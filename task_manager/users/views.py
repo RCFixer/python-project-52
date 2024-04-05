@@ -15,6 +15,7 @@ class SignUp(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Регистрация'
+        context['button_value'] = 'Зарегистрировать'
         return context
 
 
@@ -26,6 +27,7 @@ class EditUser(generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Изменение пользователя'
+        context['button_value'] = 'Изменить'
         return context
 
     def get_queryset(self):

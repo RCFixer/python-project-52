@@ -18,6 +18,7 @@ class CreateTask(BaseRequiredMixin, generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Создать задачу'
+        context['button_value'] = 'Создать'
         return context
 
     def form_valid(self, form):
@@ -34,6 +35,7 @@ class UpdateTask(BaseRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Изменение задачи'
+        context['button_value'] = 'Изменить'
         return context
 
     def get_queryset(self):

@@ -16,6 +16,7 @@ class CreateLabel(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Создать метку'
+        context['button_value'] = 'Создать'
         return context
 
 
@@ -34,6 +35,7 @@ class UpdateLabel(BaseRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Обновить метку'
+        context['button_value'] = 'Изменить'
         return context
 
     def get_queryset(self):

@@ -15,6 +15,7 @@ class CreateStatus(BaseRequiredMixin, generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Создать статус'
+        context['button_value'] = 'Создать'
         return context
 
 
@@ -33,6 +34,7 @@ class UpdateStatus(BaseRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Обновить статус'
+        context['button_value'] = 'Изменить'
         return context
 
     def get_queryset(self):
